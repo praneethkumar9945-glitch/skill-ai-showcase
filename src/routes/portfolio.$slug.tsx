@@ -398,7 +398,7 @@ function PortfolioPage() {
             <h1 className="portfolio-display select-none text-center text-[19vw] font-black leading-[0.82] tracking-tighter sm:text-[15vw]">
               {firstName}
             </h1>
-            <div className="pointer-events-none relative -mt-[13vw] flex justify-center sm:-mt-[11vw]">
+            <div className="pointer-events-none relative -mt-[13vw] flex justify-center sm:-mt-[12vw] md:-mt-[13vw]">
               <img
                 src={p.photo}
                 alt={`${p.name} — ${p.role}`}
