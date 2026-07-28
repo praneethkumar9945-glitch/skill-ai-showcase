@@ -402,7 +402,7 @@ function PortfolioPage() {
             <div
               className={`pointer-events-none relative z-0 flex justify-center ${
                 isSuprabha
-                  ? "-mt-[13vw] mb-[-10vw] sm:-mt-[12vw] sm:mb-[-7vw] md:-mt-[13vw]"
+                  ? "-mt-[15vw] mb-[-10vw] sm:-mt-[14vw] sm:mb-[-7vw] md:-mt-[15vw]"
                   : "-mt-[10vw] mb-[-7vw] sm:-mt-[9vw] sm:mb-[-5vw] md:-mt-[10vw] md:mb-[-7vw]"
               }`}
             >
