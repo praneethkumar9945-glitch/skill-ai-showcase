@@ -360,6 +360,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
 function PortfolioPage() {
   const { portfolio: p } = Route.useLoaderData();
   const firstName = p.name.split(" ")[0].toUpperCase();
+  const isSuprabha = p.name === "Suprabha Y";
 
   const stats = [
     { value: `${p.expertise.length}+`, label: "Areas of Expertise" },
@@ -398,11 +399,19 @@ function PortfolioPage() {
             <h1 className="portfolio-display select-none text-center text-[19vw] font-black leading-[0.82] tracking-tighter sm:text-[15vw]">
               {firstName}
             </h1>
-            <div className="pointer-events-none relative z-0 -mt-[13vw] mb-[-10vw] flex justify-center sm:-mt-[12vw] sm:mb-[-7vw] md:-mt-[13vw]">
+            <div
+              className={`pointer-events-none relative z-0 flex justify-center ${
+                isSuprabha
+                  ? "-mt-[13vw] mb-[-10vw] sm:-mt-[12vw] sm:mb-[-7vw] md:-mt-[13vw]"
+                  : "-mt-[10vw] mb-[-7vw] sm:-mt-[9vw] sm:mb-[-5vw] md:-mt-[10vw] md:mb-[-7vw]"
+              }`}
+            >
               <img
                 src={p.photo}
                 alt={`${p.name} — ${p.role}`}
-                className="h-[52vw] max-h-[560px] w-auto object-contain drop-shadow-2xl"
+                className={`w-auto object-contain drop-shadow-2xl ${
+                  isSuprabha ? "h-[52vw] max-h-[560px]" : "h-[46vw] max-h-[480px]"
+                }`}
               />
             </div>
 
