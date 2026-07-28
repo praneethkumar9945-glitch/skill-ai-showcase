@@ -398,16 +398,16 @@ function PortfolioPage() {
             <h1 className="portfolio-display select-none text-center text-[19vw] font-black leading-[0.82] tracking-tighter sm:text-[15vw]">
               {firstName}
             </h1>
-            <div className="pointer-events-none relative -mt-[13vw] flex justify-center sm:-mt-[12vw] md:-mt-[13vw]">
+            <div className="pointer-events-none relative z-0 -mt-[13vw] mb-[-10vw] flex justify-center sm:-mt-[12vw] sm:mb-[-7vw] md:-mt-[13vw]">
               <img
                 src={p.photo}
                 alt={`${p.name} — ${p.role}`}
-                className="h-[42vw] max-h-[430px] w-auto object-contain drop-shadow-2xl"
+                className="h-[52vw] max-h-[560px] w-auto object-contain drop-shadow-2xl"
               />
             </div>
 
             {/* Left tagline block */}
-            <div className="relative z-10 -mt-10 grid gap-6 sm:-mt-16 md:grid-cols-3 md:items-end">
+            <div className="relative z-10 grid gap-6 md:grid-cols-3 md:items-end">
               <div>
                 <p className="portfolio-ink max-w-xs text-base font-semibold leading-snug sm:text-lg">
                   {p.tagline}
@@ -430,7 +430,7 @@ function PortfolioPage() {
             </div>
 
             {/* Glass stat strip */}
-            <div className="relative z-10 mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-2xl portfolio-glass sm:grid-cols-4">
+            <div className="relative z-10 mt-6 grid grid-cols-2 divide-x divide-[oklch(1_0_0/25%)] overflow-hidden rounded-2xl portfolio-glass sm:grid-cols-4">
               {stats.map((s) => (
                 <div key={s.label} className="px-4 py-6 text-center">
                   <div className="portfolio-ink text-2xl font-black sm:text-3xl">{s.value}</div>
@@ -440,6 +440,7 @@ function PortfolioPage() {
                 </div>
               ))}
             </div>
+
           </div>
         </section>
 
