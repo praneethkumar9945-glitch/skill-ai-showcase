@@ -159,9 +159,10 @@
 @layer utilities {
   .portfolio-canvas {
     background-image:
-      radial-gradient(120% 90% at 85% 10%, oklch(0.92 0.11 130) 0%, transparent 55%),
-      radial-gradient(120% 110% at 15% 90%, oklch(0.72 0.19 42) 0%, transparent 60%),
-      linear-gradient(150deg, oklch(0.9 0.1 120) 0%, oklch(0.86 0.14 85) 35%, oklch(0.78 0.18 55) 70%, oklch(0.71 0.19 40) 100%);
+      radial-gradient(90% 70% at 92% 4%, oklch(0.92 0.13 145) 0%, transparent 58%),
+      radial-gradient(80% 60% at 6% 2%, oklch(0.93 0.12 140) 0%, transparent 60%),
+      radial-gradient(110% 90% at 50% 105%, oklch(0.7 0.2 42) 0%, transparent 65%),
+      linear-gradient(165deg, oklch(0.91 0.11 130) 0%, oklch(0.88 0.13 95) 28%, oklch(0.81 0.17 62) 58%, oklch(0.72 0.2 43) 100%);
   }
   .portfolio-ink { color: oklch(0.18 0.02 45); }
   .portfolio-ink-soft { color: oklch(0.32 0.03 45); }
@@ -170,8 +171,9 @@
     text-shadow: 0 1px 0 oklch(1 0 0 / 25%);
   }
   .portfolio-glass {
-    background: oklch(1 0 0 / 18%);
-    backdrop-filter: blur(14px);
-    border: 1px solid oklch(1 0 0 / 30%);
+    background: oklch(1 0 0 / 14%);
+    backdrop-filter: blur(18px);
+    border: 1px solid oklch(1 0 0 / 28%);
   }
+
 }
