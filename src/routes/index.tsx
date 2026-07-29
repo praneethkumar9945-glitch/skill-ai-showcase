@@ -32,7 +32,7 @@ export const Route = createFileRoute("/")({
 });
 
 const navItems: { label: string; chevron: boolean; href?: string }[] = [
-  { label: "Advanced Program", chevron: true, href: "/pg-programs" },
+  
   { label: "PG/UG Program", chevron: true, href: "/ug-programs" },
   { label: "Multimedia", chevron: true, href: "/multimedia" },
   { label: "AI", chevron: true, href: "/ai" },
@@ -225,11 +225,6 @@ function Index() {
               KNOW MORE <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </button>
 
-            <div className="mt-10 sm:mt-12 grid gap-5 border-t border-border pt-7 sm:grid-cols-3">
-              <CredBlock title="Built by alumni from:" logos={["Harvard", "Kellogg"]} />
-              <CredBlock title="Supported by Founders from:" logos={["Paytm", "CRED", "UC", "Meesho", "Swiggy"]} />
-              <CredBlock title="Backed by:" logos={["Elevation"]} />
-            </div>
           </div>
 
           {/* Video card */}
@@ -530,20 +525,6 @@ function CtaBtn({ children, primary, onClick }: { children: React.ReactNode; pri
   );
 }
 
-function CredBlock({ title, logos }: { title: string; logos: string[] }) {
-  return (
-    <div>
-      <div className="text-xs text-muted-foreground">{title}</div>
-      <div className="mt-2 flex flex-wrap items-center gap-2">
-        {logos.map((l) => (
-          <span key={l} className="rounded-md bg-foreground/5 px-2.5 py-1 text-xs font-semibold tracking-wide text-foreground/85 transition-colors hover:bg-lime/10 hover:text-lime">
-            {l}
-          </span>
-        ))}
-      </div>
-    </div>
-  );
-}
 
 function FootCol({ title, items }: { title: string; items: string[] }) {
   return (
