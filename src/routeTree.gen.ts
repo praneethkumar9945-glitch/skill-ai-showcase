@@ -10,7 +10,6 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as UgProgramsRouteImport } from './routes/ug-programs'
-import { Route as PgProgramsRouteImport } from './routes/pg-programs'
 import { Route as OutcomesRouteImport } from './routes/outcomes'
 import { Route as OnlineProgramsRouteImport } from './routes/online-programs'
 import { Route as MultimediaRouteImport } from './routes/multimedia'
@@ -37,11 +36,6 @@ import { Route as AiAdvancedDataScienceRouteImport } from './routes/ai.advanced-
 const UgProgramsRoute = UgProgramsRouteImport.update({
   id: '/ug-programs',
   path: '/ug-programs',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PgProgramsRoute = PgProgramsRouteImport.update({
-  id: '/pg-programs',
-  path: '/pg-programs',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OutcomesRoute = OutcomesRouteImport.update({
@@ -166,7 +160,6 @@ export interface FileRoutesByFullPath {
   '/multimedia': typeof MultimediaRouteWithChildren
   '/online-programs': typeof OnlineProgramsRoute
   '/outcomes': typeof OutcomesRoute
-  '/pg-programs': typeof PgProgramsRoute
   '/ug-programs': typeof UgProgramsRoute
   '/ai/advanced-data-science': typeof AiAdvancedDataScienceRoute
   '/ai/big-data': typeof AiBigDataRoute
@@ -190,7 +183,6 @@ export interface FileRoutesByTo {
   '/management': typeof ManagementRoute
   '/online-programs': typeof OnlineProgramsRoute
   '/outcomes': typeof OutcomesRoute
-  '/pg-programs': typeof PgProgramsRoute
   '/ug-programs': typeof UgProgramsRoute
   '/ai/advanced-data-science': typeof AiAdvancedDataScienceRoute
   '/ai/big-data': typeof AiBigDataRoute
@@ -217,7 +209,6 @@ export interface FileRoutesById {
   '/multimedia': typeof MultimediaRouteWithChildren
   '/online-programs': typeof OnlineProgramsRoute
   '/outcomes': typeof OutcomesRoute
-  '/pg-programs': typeof PgProgramsRoute
   '/ug-programs': typeof UgProgramsRoute
   '/ai/advanced-data-science': typeof AiAdvancedDataScienceRoute
   '/ai/big-data': typeof AiBigDataRoute
@@ -245,7 +236,6 @@ export interface FileRouteTypes {
     | '/multimedia'
     | '/online-programs'
     | '/outcomes'
-    | '/pg-programs'
     | '/ug-programs'
     | '/ai/advanced-data-science'
     | '/ai/big-data'
@@ -269,7 +259,6 @@ export interface FileRouteTypes {
     | '/management'
     | '/online-programs'
     | '/outcomes'
-    | '/pg-programs'
     | '/ug-programs'
     | '/ai/advanced-data-science'
     | '/ai/big-data'
@@ -295,7 +284,6 @@ export interface FileRouteTypes {
     | '/multimedia'
     | '/online-programs'
     | '/outcomes'
-    | '/pg-programs'
     | '/ug-programs'
     | '/ai/advanced-data-science'
     | '/ai/big-data'
@@ -322,7 +310,6 @@ export interface RootRouteChildren {
   MultimediaRoute: typeof MultimediaRouteWithChildren
   OnlineProgramsRoute: typeof OnlineProgramsRoute
   OutcomesRoute: typeof OutcomesRoute
-  PgProgramsRoute: typeof PgProgramsRoute
   UgProgramsRoute: typeof UgProgramsRoute
   PortfolioSlugRoute: typeof PortfolioSlugRoute
 }
@@ -334,13 +321,6 @@ declare module '@tanstack/react-router' {
       path: '/ug-programs'
       fullPath: '/ug-programs'
       preLoaderRoute: typeof UgProgramsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/pg-programs': {
-      id: '/pg-programs'
-      path: '/pg-programs'
-      fullPath: '/pg-programs'
-      preLoaderRoute: typeof PgProgramsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/outcomes': {
@@ -554,7 +534,6 @@ const rootRouteChildren: RootRouteChildren = {
   MultimediaRoute: MultimediaRouteWithChildren,
   OnlineProgramsRoute: OnlineProgramsRoute,
   OutcomesRoute: OutcomesRoute,
-  PgProgramsRoute: PgProgramsRoute,
   UgProgramsRoute: UgProgramsRoute,
   PortfolioSlugRoute: PortfolioSlugRoute,
 }
