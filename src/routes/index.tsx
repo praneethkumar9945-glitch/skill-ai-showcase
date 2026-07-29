@@ -51,7 +51,7 @@ const stats = [
 ];
 
 const pillars = [
-  { n: "1", title: "Advanced Program", img: pillar1, href: "/pg-programs", body: "Flagship 12-month PGP in Startup Leadership & Entrepreneurship — built with unicorn founders, VCs and operators." },
+  
   { n: "2", title: "AI courese", img: pillar2, href: "/ai", body: "Explore industry-ready AI, DS, Big Data, Advanced MLOps, Gen Ai, Agentic Ai, Cyber security courses with live projects and placement support." },
   { n: "3", title: "Multimedia", img: pillar3, href: "/multimedia", body: "Explore industry-ready AI, DS, Big Data, Advanced MLOps, Gen Ai, Agentic Ai, Cyber security courses with live projects and placement support." },
   { n: "4", title: "Management", img: pillar4, href: "/management", body: "Business & Entrepreneurship, Sales, Marketing and Finance — operator-led classes that turn theory into traction." },
@@ -293,7 +293,7 @@ function Index() {
       <section className="mx-auto max-w-7xl px-4 sm:px-6 py-20 sm:py-24">
         <div className="reveal text-xs sm:text-sm font-medium uppercase tracking-widest text-mint">Program Details</div>
         <h2 className="reveal mt-3 text-3xl sm:text-4xl font-bold tracking-tight">
-          Advanced Program, Multimedia, <br /> AI, Management, <span className="text-gradient-lime">UG/PG Program</span>
+          Multimedia, AI, <br /> Management, <span className="text-gradient-lime">UG/PG Program</span>
         </h2>
         <div className="reveal mt-7 flex flex-wrap gap-x-7 gap-y-3 text-sm">
           <Meta icon={<Calendar className="h-4 w-4 text-lime" />} label="12 months" />
