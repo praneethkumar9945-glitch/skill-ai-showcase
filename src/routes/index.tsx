@@ -14,7 +14,7 @@ import pillar4 from "@/assets/pillar-4.jpg";
 import dishaAsset from "@/assets/disha.png.asset.json";
 import manyaAsset from "@/assets/manya.png.asset.json";
 import meghaShreeAsset from "@/assets/megha-shree.png.asset.json";
-import priyankaImg from "@/assets/priyanka-fixed.png";
+import priyankaAsset from "@/assets/priyanka.png.asset.json";
 import sharanyaImg from "@/assets/sharanya-fixed.png";
 import suprabhaImg from "@/assets/suprabha-fixed.png";
 import demodayImg from "@/assets/demoday.jpg";
