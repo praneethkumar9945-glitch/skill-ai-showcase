@@ -1,13 +1,15 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, Mail, Award, Sparkles, Target, Briefcase, GraduationCap, Star } from "lucide-react";
 
-import manyaPhoto from "@/assets/manya.png.asset.json";
-import meghaPhoto from "@/assets/megha-shree.png.asset.json";
-import priyankaAsset from "@/assets/priyanka.png.asset.json";
+import manyaPhoto from "@/assets/bg/manya.png.asset.json";
+import meghaPhoto from "@/assets/bg/megha.png.asset.json";
+import priyankaAsset from "@/assets/bg/priyanka.png.asset.json";
 const priyankaPhoto = priyankaAsset.url;
-import sharanyaPhoto from "@/assets/sharanya-fixed.png";
-import suprabhaPhoto from "@/assets/suprabha-fixed.png";
-import dishaPhoto from "@/assets/disha.png.asset.json";
+import sharanyaAsset from "@/assets/bg/sharanya.png.asset.json";
+const sharanyaPhoto = sharanyaAsset.url;
+import suprabhaAsset from "@/assets/bg/suprabha.png.asset.json";
+const suprabhaPhoto = suprabhaAsset.url;
+import dishaPhoto from "@/assets/bg/disha.png.asset.json";
 
 type Portfolio = {
   name: string;
@@ -371,25 +373,29 @@ function PortfolioPage() {
   ];
 
   return (
-    <div className="min-h-screen portfolio-canvas">
+    <div className="min-h-screen bg-background text-foreground">
       <main className="mx-auto max-w-7xl px-3 py-4 sm:px-6 sm:py-8">
-        {/* ===== Poster hero ===== */}
-        <section className="relative overflow-hidden rounded-[2rem] portfolio-canvas shadow-2xl">
+        {/* ===== Poster hero (course-page theme) ===== */}
+        <section className="relative overflow-hidden rounded-[2rem] border border-border/40 bg-surface/40 shadow-2xl">
+          <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-lime/20 via-orange-500/10 to-transparent animate-[pulse_6s_ease-in-out_infinite]" />
+          <div className="pointer-events-none absolute -top-24 -right-24 -z-10 h-96 w-96 rounded-full bg-lime/20 blur-3xl animate-[pulse_5s_ease-in-out_infinite]" />
+          <div className="pointer-events-none absolute -bottom-32 -left-24 -z-10 h-96 w-96 rounded-full bg-orange-500/20 blur-3xl animate-[pulse_7s_ease-in-out_infinite]" />
+
           {/* Nav */}
           <div className="relative z-20 flex items-center justify-between px-5 py-5 sm:px-8">
-            <Link to="/" className="portfolio-ink inline-flex items-center gap-2 text-lg font-black tracking-tight">
+            <Link to="/" className="inline-flex items-center gap-2 text-lg font-black tracking-tight text-foreground">
               <ArrowLeft className="h-4 w-4" />
               <span className="italic">SKILL AI</span>
             </Link>
-            <nav className="hidden items-center gap-7 text-[11px] font-semibold uppercase tracking-[0.18em] portfolio-ink-soft md:flex">
-              <a href="#expertise">Expertise</a>
-              <a href="#skills">Skills</a>
-              <a href="#qualification">Qualification</a>
-              <a href="#vision">Vision</a>
+            <nav className="hidden items-center gap-7 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground md:flex">
+              <a href="#expertise" className="hover:text-lime">Expertise</a>
+              <a href="#skills" className="hover:text-lime">Skills</a>
+              <a href="#qualification" className="hover:text-lime">Qualification</a>
+              <a href="#vision" className="hover:text-lime">Vision</a>
             </nav>
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 rounded-full bg-[oklch(0.18_0.02_45)] px-4 py-2.5 text-[11px] font-semibold uppercase tracking-widest text-[oklch(0.98_0.01_70)]"
+              className="inline-flex items-center gap-2 rounded-full bg-lime px-4 py-2.5 text-[11px] font-semibold uppercase tracking-widest text-lime-foreground shadow-lg shadow-lime/20 transition-transform hover:scale-105"
             >
               Connect <ArrowLeft className="h-3.5 w-3.5 rotate-180" />
             </a>
@@ -397,7 +403,7 @@ function PortfolioPage() {
 
           {/* Giant name + portrait */}
           <div className="relative px-5 pb-6 sm:px-8">
-            <h1 className="portfolio-display select-none text-center text-[19vw] font-black leading-[0.82] tracking-tighter sm:text-[15vw]">
+            <h1 className="select-none text-center text-[19vw] font-black leading-[0.82] tracking-tighter text-gradient-lime sm:text-[15vw]">
               {firstName}
             </h1>
             <div
@@ -419,32 +425,32 @@ function PortfolioPage() {
             {/* Left tagline block */}
             <div className="relative z-10 grid gap-6 md:grid-cols-3 md:items-end">
               <div>
-                <p className="portfolio-ink max-w-xs text-base font-semibold leading-snug sm:text-lg">
+                <p className="max-w-xs text-base font-semibold leading-snug text-foreground sm:text-lg">
                   {p.tagline}
                 </p>
                 <a
                   href="#about"
-                  className="mt-5 inline-flex items-center gap-2 rounded-full bg-[oklch(0.18_0.02_45)] px-5 py-2.5 text-[11px] font-semibold uppercase tracking-widest text-[oklch(0.98_0.01_70)]"
+                  className="mt-5 inline-flex items-center gap-2 rounded-full bg-lime px-5 py-2.5 text-[11px] font-semibold uppercase tracking-widest text-lime-foreground shadow-lg shadow-lime/20 transition-transform hover:scale-105"
                 >
                   Explore Profile <ArrowLeft className="h-3.5 w-3.5 rotate-180" />
                 </a>
               </div>
               <div className="hidden md:block" />
               <div className="md:text-right">
-                <p className="text-[10px] font-bold uppercase tracking-[0.28em] portfolio-ink-soft">
+                <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-lime">
                   Currently
                 </p>
-                <p className="portfolio-ink mt-2 text-sm font-semibold">{p.role}</p>
-                <p className="portfolio-ink-soft mt-1 text-xs">SKILL AI · Mangalore</p>
+                <p className="mt-2 text-sm font-semibold text-foreground">{p.role}</p>
+                <p className="mt-1 text-xs text-muted-foreground">SKILL AI · Mangalore</p>
               </div>
             </div>
 
-            {/* Glass stat strip */}
-            <div className="relative z-10 mt-6 grid grid-cols-2 divide-x divide-[oklch(1_0_0/25%)] overflow-hidden rounded-2xl portfolio-glass sm:grid-cols-4">
+            {/* Stat strip */}
+            <div className="relative z-10 mt-6 grid grid-cols-2 divide-x divide-border/50 overflow-hidden rounded-2xl border border-border/50 bg-surface/70 backdrop-blur-xl sm:grid-cols-4">
               {stats.map((s) => (
                 <div key={s.label} className="px-4 py-6 text-center">
-                  <div className="portfolio-ink text-2xl font-black sm:text-3xl">{s.value}</div>
-                  <div className="portfolio-ink-soft mt-1 text-[10px] font-semibold uppercase tracking-[0.16em]">
+                  <div className="text-2xl font-black text-lime sm:text-3xl">{s.value}</div>
+                  <div className="mt-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
                     {s.label}
                   </div>
                 </div>
@@ -453,6 +459,7 @@ function PortfolioPage() {
 
           </div>
         </section>
+
 
         {/* ===== Content on dark canvas ===== */}
         <div className="mt-6 rounded-[2rem] bg-background p-5 text-foreground sm:p-10">
