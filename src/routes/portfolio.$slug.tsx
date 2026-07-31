@@ -1,13 +1,15 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, Mail, Award, Sparkles, Target, Briefcase, GraduationCap, Star } from "lucide-react";
 
-import manyaPhoto from "@/assets/manya.png.asset.json";
-import meghaPhoto from "@/assets/megha-shree.png.asset.json";
-import priyankaAsset from "@/assets/priyanka.png.asset.json";
+import manyaPhoto from "@/assets/bg/manya.png.asset.json";
+import meghaPhoto from "@/assets/bg/megha.png.asset.json";
+import priyankaAsset from "@/assets/bg/priyanka.png.asset.json";
 const priyankaPhoto = priyankaAsset.url;
-import sharanyaPhoto from "@/assets/sharanya-fixed.png";
-import suprabhaPhoto from "@/assets/suprabha-fixed.png";
-import dishaPhoto from "@/assets/disha.png.asset.json";
+import sharanyaAsset from "@/assets/bg/sharanya.png.asset.json";
+const sharanyaPhoto = sharanyaAsset.url;
+import suprabhaAsset from "@/assets/bg/suprabha.png.asset.json";
+const suprabhaPhoto = suprabhaAsset.url;
+import dishaPhoto from "@/assets/bg/disha.png.asset.json";
 
 type Portfolio = {
   name: string;
