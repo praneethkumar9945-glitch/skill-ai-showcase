@@ -421,7 +421,7 @@ function PortfolioPage() {
               </span>
             </div>
             <h1 className="reveal mt-6 text-5xl font-black tracking-tight md:text-7xl leading-[1.05]">
-              {p.name.split(" ").map((w, i) => (
+              {p.name.split(" ").map((w: string, i: number) => (
                 <span key={i} className="inline-block animate-fade-in mr-3" style={{ animationDelay: `${i * 100}ms`, animationFillMode: "both" }}>{w}</span>
               ))}
             </h1>
