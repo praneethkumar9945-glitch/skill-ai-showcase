@@ -3,7 +3,8 @@ import { ArrowLeft, Mail, Award, Sparkles, Target, Briefcase, GraduationCap, Sta
 
 import manyaPhoto from "@/assets/manya.png.asset.json";
 import meghaPhoto from "@/assets/megha-shree.png.asset.json";
-import priyankaPhoto from "@/assets/priyanka-fixed.png";
+import priyankaAsset from "@/assets/priyanka.png.asset.json";
+const priyankaPhoto = priyankaAsset.url;
 import sharanyaPhoto from "@/assets/sharanya-fixed.png";
 import suprabhaPhoto from "@/assets/suprabha-fixed.png";
 import dishaPhoto from "@/assets/disha.png.asset.json";
