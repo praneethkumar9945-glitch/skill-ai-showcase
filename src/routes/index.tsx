@@ -14,7 +14,7 @@ import pillar4 from "@/assets/pillar-4.jpg";
 import dishaAsset from "@/assets/disha.png.asset.json";
 import manyaAsset from "@/assets/manya.png.asset.json";
 import meghaShreeAsset from "@/assets/megha-shree.png.asset.json";
-import priyankaImg from "@/assets/priyanka-fixed.png";
+import priyankaAsset from "@/assets/priyanka.png.asset.json";
 import sharanyaImg from "@/assets/sharanya-fixed.png";
 import suprabhaImg from "@/assets/suprabha-fixed.png";
 import demodayImg from "@/assets/demoday.jpg";
@@ -62,7 +62,7 @@ const life: { tag: string; title: string; by: string; img: string; body: string;
   { tag: "Life at SKILL AI", title: "Disha", by: "", img: dishaAsset.url, body: "", slug: "disha" },
   { tag: "Life at SKILL AI", title: "Manya", by: "", img: manyaAsset.url, body: "", slug: "manya" },
   { tag: "Life at SKILL AI", title: "Megha Shree", by: "", img: meghaShreeAsset.url, body: "", slug: "megha" },
-  { tag: "Life at SKILL AI", title: "Priyanka", by: "", img: priyankaImg, body: "", slug: "priyanka" },
+  { tag: "Life at SKILL AI", title: "Priyanka", by: "", img: priyankaAsset.url, body: "", slug: "priyanka" },
   { tag: "Life at SKILL AI", title: "Sharanya", by: "", img: sharanyaImg, body: "", slug: "sharanya" },
   { tag: "Life at SKILL AI", title: "Suprabha", by: "", img: suprabhaImg, body: "", slug: "suprabha" },
 ];
