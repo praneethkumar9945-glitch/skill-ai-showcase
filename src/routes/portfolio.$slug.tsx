@@ -1,5 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowLeft, Mail, Award, Sparkles, Target, Briefcase, GraduationCap, Star } from "lucide-react";
+import { useEffect } from "react";
+import { ArrowLeft, ArrowRight, Mail, Award, Sparkles, Target, Briefcase, GraduationCap, Star } from "lucide-react";
+import skillAiLogo from "@/assets/skill-ai-logo.png";
 
 import manyaPhoto from "@/assets/bg/manya.png.asset.json";
 import meghaPhoto from "@/assets/bg/megha.png.asset.json";
