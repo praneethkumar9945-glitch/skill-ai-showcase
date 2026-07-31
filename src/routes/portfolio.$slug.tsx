@@ -1,5 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowLeft, Mail, Award, Sparkles, Target, Briefcase, GraduationCap, Star } from "lucide-react";
+import { useEffect } from "react";
+import { ArrowLeft, ArrowRight, Mail, Award, Sparkles, Target, Briefcase, GraduationCap, Star } from "lucide-react";
+import skillAiLogo from "@/assets/skill-ai-logo.png";
 
 import manyaPhoto from "@/assets/bg/manya.png.asset.json";
 import meghaPhoto from "@/assets/bg/megha.png.asset.json";
@@ -360,192 +362,211 @@ export const Route = createFileRoute("/portfolio/$slug")({
   component: PortfolioPage,
 });
 
+function useReveal() {
+  useEffect(() => {
+    const els = document.querySelectorAll<HTMLElement>(".reveal");
+    const io = new IntersectionObserver(
+      (es) => es.forEach((e) => e.isIntersecting && (e.target.classList.add("in-view"), io.unobserve(e.target))),
+      { threshold: 0.12 },
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+}
+
 function PortfolioPage() {
   const { portfolio: p } = Route.useLoaderData();
-  const firstName = p.name.split(" ")[0].toUpperCase();
-  const isSuprabha = p.name === "Suprabha Y";
+  useReveal();
 
   const stats = [
-    { value: `${p.expertise.length}+`, label: "Areas of Expertise" },
-    { value: `${p.skills.length}+`, label: "Core Skills" },
-    { value: `${p.qualifications.length}`, label: "Qualifications" },
-    { value: `${p.standOut.length}+`, label: "Standout Strengths" },
+    { icon: Sparkles, label: "Areas of Expertise", value: `${p.expertise.length}+` },
+    { icon: Award, label: "Core Skills", value: `${p.skills.length}+` },
+    { icon: GraduationCap, label: "Qualifications", value: `${p.qualifications.length}` },
+    { icon: Star, label: "Standout Strengths", value: `${p.standOut.length}+` },
+    { icon: Briefcase, label: "Currently", value: p.role },
+    { icon: Target, label: "Based At", value: "SKILL AI · Mangalore" },
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <main className="mx-auto max-w-7xl px-3 py-4 sm:px-6 sm:py-8">
-        {/* ===== Poster hero (course-page theme) ===== */}
-        <section className="relative overflow-hidden rounded-[2rem] border border-border/40 bg-surface/40 shadow-2xl">
-          <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-lime/20 via-orange-500/10 to-transparent animate-[pulse_6s_ease-in-out_infinite]" />
-          <div className="pointer-events-none absolute -top-24 -right-24 -z-10 h-96 w-96 rounded-full bg-lime/20 blur-3xl animate-[pulse_5s_ease-in-out_infinite]" />
-          <div className="pointer-events-none absolute -bottom-32 -left-24 -z-10 h-96 w-96 rounded-full bg-orange-500/20 blur-3xl animate-[pulse_7s_ease-in-out_infinite]" />
-
-          {/* Nav */}
-          <div className="relative z-20 flex items-center justify-between px-5 py-5 sm:px-8">
-            <Link to="/" className="inline-flex items-center gap-2 text-lg font-black tracking-tight text-foreground">
-              <ArrowLeft className="h-4 w-4" />
-              <span className="italic">SKILL AI</span>
-            </Link>
-            <nav className="hidden items-center gap-7 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground md:flex">
-              <a href="#expertise" className="hover:text-lime">Expertise</a>
-              <a href="#skills" className="hover:text-lime">Skills</a>
-              <a href="#qualification" className="hover:text-lime">Qualification</a>
-              <a href="#vision" className="hover:text-lime">Vision</a>
-            </nav>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 rounded-full bg-lime px-4 py-2.5 text-[11px] font-semibold uppercase tracking-widest text-lime-foreground shadow-lg shadow-lime/20 transition-transform hover:scale-105"
-            >
-              Connect <ArrowLeft className="h-3.5 w-3.5 rotate-180" />
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+      {/* Header */}
+      <header className="sticky top-0 z-40 border-b border-border/40 bg-background/80 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+          <Link to="/" className="flex items-center gap-2">
+            <img src={skillAiLogo} alt="SkillAI - Learn Skill Get Job" className="h-9 w-auto rounded-md bg-white p-1" />
+          </Link>
+          <div className="flex items-center gap-4">
+            <Link to="/" className="text-sm text-muted-foreground hover:text-foreground">← Life at SKILL AI</Link>
+            <a href="#contact" className="hidden md:inline-flex items-center gap-2 rounded-full bg-lime px-5 py-2 text-sm font-bold text-lime-foreground hover:scale-105 transition-transform">
+              Connect <ArrowRight className="h-4 w-4" />
             </a>
           </div>
+        </div>
+      </header>
 
-          {/* Giant name + portrait */}
-          <div className="relative px-5 pb-6 sm:px-8">
-            <h1 className="select-none text-center text-[19vw] font-black leading-[0.82] tracking-tighter text-gradient-lime sm:text-[15vw]">
-              {firstName}
-            </h1>
-            <div
-              className={`pointer-events-none relative z-0 flex justify-center ${
-                isSuprabha
-                  ? "-mt-[15vw] mb-[-10vw] sm:-mt-[14vw] sm:mb-[-7vw] md:-mt-[15vw]"
-                  : "-mt-[10vw] mb-[-7vw] sm:-mt-[9vw] sm:mb-[-5vw] md:-mt-[10vw] md:mb-[-7vw]"
-              }`}
-            >
-              <img
-                src={p.photo}
-                alt={`${p.name} — ${p.role}`}
-                className={`w-auto object-contain drop-shadow-2xl ${
-                  isSuprabha ? "h-[52vw] max-h-[560px]" : "h-[46vw] max-h-[480px]"
-                }`}
-              />
+      {/* HERO */}
+      <section className="relative overflow-hidden border-b border-border/40 px-6 py-20 md:py-28">
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute -top-20 -left-20 h-[28rem] w-[28rem] rounded-full bg-lime/25 blur-3xl animate-[pulse_6s_ease-in-out_infinite]" />
+          <div className="absolute top-40 -right-32 h-[32rem] w-[32rem] rounded-full bg-fuchsia-500/25 blur-3xl animate-[pulse_8s_ease-in-out_infinite]" />
+          <div className="absolute bottom-0 left-1/3 h-96 w-96 rounded-full bg-cyan-500/20 blur-3xl animate-[pulse_7s_ease-in-out_infinite]" />
+        </div>
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_1px_1px,hsl(var(--foreground)/0.06)_1px,transparent_0)] [background-size:32px_32px]" />
+
+        <div className="mx-auto max-w-7xl grid gap-12 lg:grid-cols-[1.3fr_1fr] items-center">
+          <div>
+            <div className="reveal">
+              <span className="inline-flex items-center gap-2 rounded-full border border-lime/30 bg-lime/5 px-4 py-1.5 text-xs font-semibold text-lime">
+                <Sparkles className="h-3.5 w-3.5 animate-pulse" /> {p.role} · SKILL AI
+              </span>
             </div>
-
-            {/* Left tagline block */}
-            <div className="relative z-10 grid gap-6 md:grid-cols-3 md:items-end">
-              <div>
-                <p className="max-w-xs text-base font-semibold leading-snug text-foreground sm:text-lg">
-                  {p.tagline}
-                </p>
-                <a
-                  href="#about"
-                  className="mt-5 inline-flex items-center gap-2 rounded-full bg-lime px-5 py-2.5 text-[11px] font-semibold uppercase tracking-widest text-lime-foreground shadow-lg shadow-lime/20 transition-transform hover:scale-105"
-                >
-                  Explore Profile <ArrowLeft className="h-3.5 w-3.5 rotate-180" />
-                </a>
-              </div>
-              <div className="hidden md:block" />
-              <div className="md:text-right">
-                <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-lime">
-                  Currently
-                </p>
-                <p className="mt-2 text-sm font-semibold text-foreground">{p.role}</p>
-                <p className="mt-1 text-xs text-muted-foreground">SKILL AI · Mangalore</p>
-              </div>
-            </div>
-
-            {/* Stat strip */}
-            <div className="relative z-10 mt-6 grid grid-cols-2 divide-x divide-border/50 overflow-hidden rounded-2xl border border-border/50 bg-surface/70 backdrop-blur-xl sm:grid-cols-4">
-              {stats.map((s) => (
-                <div key={s.label} className="px-4 py-6 text-center">
-                  <div className="text-2xl font-black text-lime sm:text-3xl">{s.value}</div>
-                  <div className="mt-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                    {s.label}
-                  </div>
-                </div>
+            <h1 className="reveal mt-6 text-5xl font-black tracking-tight md:text-7xl leading-[1.05]">
+              {p.name.split(" ").map((w: string, i: number) => (
+                <span key={i} className="inline-block animate-fade-in mr-3" style={{ animationDelay: `${i * 100}ms`, animationFillMode: "both" }}>{w}</span>
               ))}
+            </h1>
+            <p className="reveal reveal-delay-2 mt-6 max-w-2xl text-lg text-muted-foreground">{p.tagline}</p>
+
+            <div className="reveal reveal-delay-3 mt-10 grid grid-cols-2 gap-3 md:grid-cols-3 max-w-2xl">
+              {stats.map((s, i) => {
+                const Icon = s.icon;
+                return (
+                  <div key={s.label} style={{ animationDelay: `${i * 80}ms` }} className="animate-fade-in rounded-2xl border border-border/50 bg-surface/60 backdrop-blur px-4 py-3 hover:border-lime/60 hover:-translate-y-1 transition-all">
+                    <Icon className="h-4 w-4 text-lime" />
+                    <div className="mt-2 text-[10px] uppercase tracking-widest text-muted-foreground">{s.label}</div>
+                    <div className="text-sm font-bold">{s.value}</div>
+                  </div>
+                );
+              })}
             </div>
 
+            <div className="reveal reveal-delay-4 mt-10 flex flex-wrap gap-3">
+              <a href="#about" className="group inline-flex items-center gap-2 rounded-full bg-lime px-8 py-4 text-sm font-bold text-lime-foreground shadow-2xl shadow-lime/30 hover:scale-105 hover:shadow-lime/50 transition-all">
+                Explore Profile <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </a>
+              <a href="#qualification" className="inline-flex items-center gap-2 rounded-full border border-border px-8 py-4 text-sm font-bold hover:bg-surface transition-colors">
+                Education Roadmap
+              </a>
+            </div>
           </div>
-        </section>
 
-
-        {/* ===== Content on dark canvas ===== */}
-        <div className="mt-6 rounded-[2rem] bg-background p-5 text-foreground sm:p-10">
-          <section id="about" className="grid gap-8 md:grid-cols-[1fr_1.4fr]">
-            <div className="flex items-start gap-4">
-              <img
-                src={p.photo}
-                alt={p.name}
-                className="h-20 w-20 shrink-0 rounded-full object-cover ring-2 ring-lime/60"
-              />
-              <div>
-                <h2 className="text-2xl font-black tracking-tight">{p.name}</h2>
-                <p className="text-sm font-semibold text-lime">{p.role}</p>
+          <div className="reveal reveal-delay-2 relative lg:p-6">
+            <div className="absolute -inset-4 -z-10 rounded-[2rem] bg-gradient-to-br from-lime/30 via-fuchsia-500/20 to-cyan-500/20 blur-2xl" />
+            <div className="relative overflow-hidden rounded-3xl border border-lime/30 bg-surface shadow-2xl shadow-lime/20 hover:scale-[1.02] transition-transform">
+              <div className="aspect-square p-4 md:p-6 flex items-end justify-center bg-gradient-to-br from-background via-surface to-background">
+                <img src={p.photo} alt={`${p.name} — ${p.role}`} className="max-h-full max-w-full object-contain rounded-2xl drop-shadow-2xl" />
+              </div>
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <div className="text-xs font-bold uppercase tracking-widest text-lime">{p.role}</div>
+                <div className="mt-1 text-lg font-black">{p.name}</div>
               </div>
             </div>
-            <p className="text-sm leading-relaxed text-foreground/80 sm:text-base">{p.about}</p>
-          </section>
+          </div>
+        </div>
+      </section>
 
-          <section className="mt-10 grid gap-6 md:grid-cols-3">
-            <div id="expertise" className="md:col-span-1">
+      {/* ABOUT */}
+      <section id="about" className="border-b border-border/40 px-6 py-24">
+        <div className="mx-auto max-w-7xl grid gap-12 lg:grid-cols-[1.1fr_1fr] items-start">
+          <div className="reveal">
+            <span className="text-xs font-bold uppercase tracking-widest text-lime">About</span>
+            <h2 className="mt-3 text-4xl font-black md:text-5xl">Who I am</h2>
+            <p className="mt-5 text-muted-foreground leading-relaxed">{p.about}</p>
+          </div>
+          <div className="reveal reveal-delay-2 rounded-3xl border border-lime/30 bg-gradient-to-br from-lime/20 to-emerald-500/5 p-8 shadow-2xl shadow-lime/10">
+            <div className="flex items-center gap-4">
+              <div className="grid h-14 w-14 place-items-center rounded-2xl bg-lime text-lime-foreground shadow-xl animate-[float_4s_ease-in-out_infinite]">
+                <Briefcase className="h-7 w-7" />
+              </div>
+              <div>
+                <div className="text-xs uppercase tracking-widest text-muted-foreground">Currently Working As</div>
+                <div className="text-lg font-black">{p.role}</div>
+              </div>
+            </div>
+            <p className="mt-5 text-sm leading-relaxed text-foreground/85">{p.currentRole}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* EXPERTISE / SKILLS / TALENT */}
+      <section id="skills" className="border-b border-border/40 bg-surface/40 px-6 py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="reveal max-w-2xl">
+            <span className="text-xs font-bold uppercase tracking-widest text-lime">Capabilities</span>
+            <h2 className="mt-3 text-4xl font-black md:text-5xl">Expertise, skills & talents</h2>
+          </div>
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            <div id="expertise">
               <Card icon={<Sparkles className="h-5 w-5" />} title="Expertise">
                 <BulletList items={p.expertise} />
               </Card>
             </div>
-            <div id="skills">
-              <Card icon={<Award className="h-5 w-5" />} title="Skills">
-                <BulletList items={p.skills} />
-              </Card>
-            </div>
+            <Card icon={<Award className="h-5 w-5" />} title="Skills">
+              <BulletList items={p.skills} />
+            </Card>
             <Card icon={<Star className="h-5 w-5" />} title="Talent">
               <BulletList items={p.talents} />
             </Card>
-          </section>
+          </div>
+        </div>
+      </section>
 
-          <section id="qualification" className="mt-6">
-            <Card icon={<GraduationCap className="h-5 w-5" />} title="Education Roadmap">
-              <ol className="relative mt-2 space-y-8 border-l-2 border-dashed border-lime/40 pl-8">
-                {p.qualifications.map((q: { title: string; sub: string }, i: number) => (
-                  <li key={q.title} className="relative">
-                    <span className="absolute -left-[43px] flex h-7 w-7 items-center justify-center rounded-full border-2 border-lime bg-surface text-[11px] font-bold text-lime">
-                      {i + 1}
-                    </span>
-                    <div className="rounded-2xl border border-border bg-background/40 p-4 transition hover:border-lime/60">
-                      <div className="font-semibold text-foreground">{q.title}</div>
-                      <div className="mt-1 text-sm italic text-muted-foreground">{q.sub}</div>
-                    </div>
-                  </li>
-                ))}
-                <li className="relative">
-                  <span className="absolute -left-[43px] flex h-7 w-7 items-center justify-center rounded-full bg-lime text-[11px] font-bold text-background">
-                    <Briefcase className="h-3.5 w-3.5" />
-                  </span>
-                  <div className="rounded-2xl border border-lime/40 bg-lime/5 p-4">
-                    <div className="font-semibold text-foreground">Currently Working As</div>
-                    <p className="mt-1 text-sm leading-relaxed text-foreground/85">{p.currentRole}</p>
-                  </div>
-                </li>
-              </ol>
-            </Card>
-          </section>
+      {/* EDUCATION ROADMAP */}
+      <section id="qualification" className="border-b border-border/40 px-6 py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="reveal max-w-2xl">
+            <span className="text-xs font-bold uppercase tracking-widest text-lime">Education Roadmap</span>
+            <h2 className="mt-3 text-4xl font-black md:text-5xl">My journey, step by step</h2>
+          </div>
+          <ol className="relative mt-12 space-y-8 border-l-2 border-dashed border-lime/40 pl-8">
+            {p.qualifications.map((q: { title: string; sub: string }, i: number) => (
+              <li key={q.title} className={`reveal reveal-delay-${(i % 4) + 1} relative`}>
+                <span className="absolute -left-[43px] flex h-7 w-7 items-center justify-center rounded-full border-2 border-lime bg-surface text-[11px] font-bold text-lime">
+                  {i + 1}
+                </span>
+                <div className="rounded-2xl border border-border bg-surface p-5 transition hover:border-lime/60 hover:-translate-y-1">
+                  <div className="font-semibold text-foreground">{q.title}</div>
+                  <div className="mt-1 text-sm italic text-muted-foreground">{q.sub}</div>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
 
+      {/* VISION + STAND OUT */}
+      <section id="vision" className="border-b border-border/40 bg-surface/30 px-6 py-24">
+        <div className="mx-auto max-w-7xl grid gap-6 md:grid-cols-2">
+          <Card icon={<Target className="h-5 w-5" />} title="My Vision">
+            <p className="text-sm leading-relaxed text-foreground/85">{p.vision}</p>
+          </Card>
+          <Card icon={<Star className="h-5 w-5" />} title="Why I Stand Out">
+            <BulletList items={p.standOut} />
+          </Card>
+        </div>
+      </section>
 
-          <section id="vision" className="mt-6 grid gap-6 md:grid-cols-2">
-            <Card icon={<Target className="h-5 w-5" />} title="My Vision">
-              <p className="text-sm leading-relaxed text-foreground/85">{p.vision}</p>
-            </Card>
-            <div id="contact">
-              <Card icon={<Mail className="h-5 w-5" />} title="Why I Stand Out">
-                <BulletList items={p.standOut} />
-              </Card>
-            </div>
-          </section>
-
-          <div className="mt-10 flex justify-center">
-            <Link
-              to="/"
-              className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-semibold hover:border-lime hover:text-lime"
-            >
+      {/* CTA */}
+      <section id="contact" className="relative overflow-hidden px-6 py-24">
+        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-lime/10 via-orange-500/5 to-transparent" />
+        <div className="mx-auto max-w-4xl text-center reveal">
+          <h2 className="text-4xl font-black md:text-6xl">Let's build something together</h2>
+          <p className="mt-5 text-lg text-muted-foreground">Reach out to {p.name.split(" ")[0]} at SKILL AI, Mangalore.</p>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <a href="mailto:info@skillai.in" className="inline-flex items-center gap-2 rounded-full bg-lime px-8 py-4 text-base font-bold text-lime-foreground shadow-xl shadow-lime/30 hover:scale-105 transition-transform">
+              <Mail className="h-5 w-5" /> Get in touch
+            </a>
+            <Link to="/" className="inline-flex items-center gap-2 rounded-full border border-border px-8 py-4 text-base font-bold hover:bg-surface transition-colors">
               <ArrowLeft className="h-4 w-4" /> Back to Life at SKILL AI
             </Link>
           </div>
         </div>
-      </main>
+      </section>
     </div>
   );
 }
+
 
 function Card({ icon, title, children }: { icon: React.ReactNode; title: string; children: React.ReactNode }) {
   return (
