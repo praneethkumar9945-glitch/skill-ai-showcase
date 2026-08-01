@@ -715,7 +715,7 @@ function SkillMeter({ name, value, index }: { name: string; value: number; index
       </div>
       <div className="relative mt-2 h-2.5 overflow-hidden rounded-full bg-border/50">
         <div
-          className="h-full rounded-full bg-gradient-to-r from-lime via-lime to-orange-400 shadow-[0_0_16px_hsl(var(--lime)/0.5)] transition-[width] duration-[1200ms] ease-out"
+          className="h-full rounded-full bg-gradient-to-r from-lime via-lime to-orange-400 shadow-[0_0_16px_color-mix(in_oklab,var(--lime)_50%,transparent)] transition-[width] duration-[1200ms] ease-out"
           style={{ width: `${shown}%` }}
         />
       </div>
