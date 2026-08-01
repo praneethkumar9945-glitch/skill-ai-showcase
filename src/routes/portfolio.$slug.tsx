@@ -12,6 +12,7 @@ const sharanyaPhoto = sharanyaAsset.url;
 import suprabhaAsset from "@/assets/bg/suprabha.png.asset.json";
 const suprabhaPhoto = suprabhaAsset.url;
 import dishaPhoto from "@/assets/bg/disha.png.asset.json";
+import anwithaPhoto from "@/assets/bg/anwitha.png.asset.json";
 
 type Portfolio = {
   name: string;
