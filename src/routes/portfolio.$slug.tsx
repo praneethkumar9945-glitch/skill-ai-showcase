@@ -21,6 +21,9 @@ type Portfolio = {
   tagline: string;
   expertise: string[];
   skills: string[];
+  skillLevels?: { name: string; value: number }[];
+  tools?: string[];
+
   talents: string[];
   qualifications: { title: string; sub: string }[];
   about: string;
