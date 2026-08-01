@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, Mail, Award, Sparkles, Target, Briefcase, GraduationCap, Star } from "lucide-react";
 import skillAiLogo from "@/assets/skill-ai-logo.png";
 
@@ -21,6 +21,9 @@ type Portfolio = {
   tagline: string;
   expertise: string[];
   skills: string[];
+  skillLevels?: { name: string; value: number }[];
+  tools?: string[];
+
   talents: string[];
   qualifications: { title: string; sub: string }[];
   about: string;
@@ -93,15 +96,30 @@ const portfolios: Record<string, Portfolio> = {
       "AI-Powered Marketing",
     ],
     skills: [
-      "Search Engine Optimization (SEO) — 92%",
-      "Canva / Design Execution — 92%",
-      "Social Media Marketing — 90%",
-      "Google Ads — 88%",
-      "Content Marketing — 87%",
-      "Meta Ads — 85%",
-      "AI Tools (ChatGPT, Claude, Gemini) — 85%",
+      "Search Engine Optimization (SEO)",
+      "Canva / Design Execution",
+      "Social Media Marketing",
+      "Google Ads",
+      "Content Marketing",
+      "Meta Ads",
+      "AI Tools (ChatGPT, Claude, Gemini)",
       "Google Analytics & Search Console",
     ],
+    skillLevels: [
+      { name: "Search Engine Optimization (SEO)", value: 92 },
+      { name: "Canva / Design Execution", value: 92 },
+      { name: "Social Media Marketing", value: 90 },
+      { name: "Google Ads", value: 88 },
+      { name: "Content Marketing", value: 87 },
+      { name: "Meta Ads", value: 85 },
+      { name: "AI Tools (ChatGPT, Claude, Gemini)", value: 85 },
+    ],
+    tools: [
+      "Google Ads", "Google Analytics", "Google Search Console", "Meta Business Suite",
+      "Canva", "Adobe Photoshop", "Adobe Illustrator", "Adobe Premiere Pro",
+      "CapCut", "ChatGPT", "Claude", "Gemini",
+    ],
+
     talents: [
       "Keyword research & on-page optimisation",
       "Technical SEO & Core Web Vitals",
@@ -561,7 +579,41 @@ function PortfolioPage() {
               <BulletList items={p.talents} />
             </Card>
           </div>
+
+          {p.skillLevels && p.skillLevels.length > 0 && (
+            <div className="mt-16 grid gap-10 lg:grid-cols-[1.1fr_1fr]">
+              <div className="reveal">
+                <span className="text-xs font-bold uppercase tracking-widest text-lime">Proficiency</span>
+                <h3 className="mt-2 text-2xl font-black md:text-3xl">Skills at a glance</h3>
+                <div className="mt-8 space-y-5">
+                  {p.skillLevels.map((s: { name: string; value: number }, i: number) => (
+                    <SkillMeter key={s.name} name={s.name} value={s.value} index={i} />
+                  ))}
+                </div>
+              </div>
+
+              {p.tools && p.tools.length > 0 && (
+                <div className="reveal reveal-delay-2">
+                  <span className="text-xs font-bold uppercase tracking-widest text-lime">Tools & Platforms</span>
+                  <h3 className="mt-2 text-2xl font-black md:text-3xl">Daily stack</h3>
+                  <div className="mt-8 flex flex-wrap gap-2.5">
+                    {p.tools.map((t: string, i: number) => (
+                      <span
+                        key={t}
+                        style={{ animationDelay: `${i * 50}ms` }}
+                        className="animate-fade-in group relative inline-flex items-center gap-2 rounded-xl border border-border/60 bg-background px-4 py-2.5 text-sm font-semibold transition-all hover:-translate-y-1 hover:border-lime/60 hover:bg-lime/5"
+                      >
+                        <span className="h-1.5 w-1.5 rounded-full bg-lime transition-transform group-hover:scale-150" />
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
         </div>
+
       </section>
 
       {/* EDUCATION ROADMAP */}
@@ -632,7 +684,47 @@ function Card({ icon, title, children }: { icon: React.ReactNode; title: string;
   );
 }
 
+function SkillMeter({ name, value, index }: { name: string; value: number; index: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [shown, setShown] = useState(0);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            const t = window.setTimeout(() => setShown(value), index * 120);
+            io.unobserve(e.target);
+            return () => window.clearTimeout(t);
+          }
+        });
+      },
+      { threshold: 0.3 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [value, index]);
+
+  return (
+    <div ref={ref} className="group">
+      <div className="flex items-baseline justify-between gap-4">
+        <span className="text-sm font-semibold text-foreground/90">{name}</span>
+        <span className="text-sm font-black tabular-nums text-lime">{shown}%</span>
+      </div>
+      <div className="relative mt-2 h-2.5 overflow-hidden rounded-full bg-border/50">
+        <div
+          className="h-full rounded-full bg-gradient-to-r from-lime via-lime to-orange-400 shadow-[0_0_16px_color-mix(in_oklab,var(--lime)_50%,transparent)] transition-[width] duration-[1200ms] ease-out"
+          style={{ width: `${shown}%` }}
+        />
+      </div>
+    </div>
+  );
+}
+
 function BulletList({ items }: { items: string[] }) {
+
   return (
     <ul className="space-y-2">
       {items.map((i) => (
