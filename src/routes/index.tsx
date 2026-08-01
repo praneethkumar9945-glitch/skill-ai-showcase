@@ -60,12 +60,13 @@ const pillars = [
 ];
 
 const life: { tag: string; title: string; by: string; img: string; body: string; slug?: string }[] = [
-  { tag: "Life at SKILL AI", title: "Disha", by: "", img: dishaAsset.url, body: "", slug: "disha" },
-  { tag: "Life at SKILL AI", title: "Manya", by: "", img: manyaAsset.url, body: "", slug: "manya" },
-  { tag: "Life at SKILL AI", title: "Megha Shree", by: "", img: meghaShreeAsset.url, body: "", slug: "megha" },
-  { tag: "Life at SKILL AI", title: "Priyanka", by: "", img: priyankaAsset.url, body: "", slug: "priyanka" },
-  { tag: "Life at SKILL AI", title: "Sharanya", by: "", img: sharanyaImg, body: "", slug: "sharanya" },
-  { tag: "Life at SKILL AI", title: "Suprabha", by: "", img: suprabhaImg, body: "", slug: "suprabha" },
+  { tag: "Life at SKILL AI", title: "Anwitha", by: "", img: cardAnwitha.url, body: "", slug: "anwitha" },
+  { tag: "Life at SKILL AI", title: "Disha", by: "", img: cardDisha.url, body: "", slug: "disha" },
+  { tag: "Life at SKILL AI", title: "Manya", by: "", img: cardManya.url, body: "", slug: "manya" },
+  { tag: "Life at SKILL AI", title: "Megha Shree", by: "", img: cardMegha.url, body: "", slug: "megha" },
+  { tag: "Life at SKILL AI", title: "Priyanka", by: "", img: cardPriyanka.url, body: "", slug: "priyanka" },
+  { tag: "Life at SKILL AI", title: "Sharanya", by: "", img: cardSharanya.url, body: "", slug: "sharanya" },
+  { tag: "Life at SKILL AI", title: "Suprabha", by: "", img: cardSuprabha.url, body: "", slug: "suprabha" },
 ];
 
 const vcs = ["Elevation", "Antler", "Blume", "Titan Capital", "Fireside", "Campus Fund", "Waterbridge", "Spring MC", "WTFund", "Peer Capital", "Idea Spring", "Huddle"];
