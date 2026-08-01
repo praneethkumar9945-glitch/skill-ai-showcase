@@ -320,7 +320,55 @@ const portfolios: Record<string, Portfolio> = {
       "Focused on real career growth, not just tools training",
     ],
   },
+  anwitha: {
+    name: "Anwitha",
+    role: "Multimedia Trainer",
+    photo: anwithaPhoto.url,
+    tagline: "Teaching design that tells a story.",
+    expertise: [
+      "Graphic Design",
+      "Video Editing",
+      "Motion Graphics",
+      "Visual Storytelling",
+      "Content Creation",
+      "Social Media Creatives",
+    ],
+    skills: [
+      "Adobe Photoshop & Illustrator",
+      "Premiere Pro & After Effects",
+      "Branding & Layout Design",
+      "Short-form Video Production",
+      "Creative Direction",
+      "Classroom Training & Mentoring",
+      "Presentation & Communication",
+    ],
+    talents: [
+      "Strong visual sense",
+      "Patient, hands-on trainer",
+      "Detail-oriented editor",
+      "Fast tool learner",
+      "Collaborative team player",
+      "Deadline-driven delivery",
+    ],
+    qualifications: [
+      { title: "Degree in Multimedia / Design", sub: "Undergraduate" },
+      { title: "Certified Multimedia & Design Training", sub: "Certification" },
+    ],
+    about:
+      "Multimedia Trainer with a passion for design, editing, and visual storytelling. I help students build a strong creative foundation and translate ideas into polished, industry-ready work.",
+    vision:
+      "To nurture confident creators who can take an idea from concept to a finished, professional-grade visual product.",
+    currentRole:
+      "Multimedia Trainer — teaching graphic design, video editing, and motion graphics through practical, project-based sessions.",
+    standOut: [
+      "Project-first teaching with real client-style briefs",
+      "Comfortable across both design and video pipelines",
+      "Strong eye for composition, colour, and typography",
+      "Mentors students through portfolio building",
+    ],
+  },
 };
+
 
 export const Route = createFileRoute("/portfolio/$slug")({
   loader: ({ params }) => {
