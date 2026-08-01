@@ -684,7 +684,47 @@ function Card({ icon, title, children }: { icon: React.ReactNode; title: string;
   );
 }
 
+function SkillMeter({ name, value, index }: { name: string; value: number; index: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [shown, setShown] = useState(0);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            const t = window.setTimeout(() => setShown(value), index * 120);
+            io.unobserve(e.target);
+            return () => window.clearTimeout(t);
+          }
+        });
+      },
+      { threshold: 0.3 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [value, index]);
+
+  return (
+    <div ref={ref} className="group">
+      <div className="flex items-baseline justify-between gap-4">
+        <span className="text-sm font-semibold text-foreground/90">{name}</span>
+        <span className="text-sm font-black tabular-nums text-lime">{shown}%</span>
+      </div>
+      <div className="relative mt-2 h-2.5 overflow-hidden rounded-full bg-border/50">
+        <div
+          className="h-full rounded-full bg-gradient-to-r from-lime via-lime to-orange-400 shadow-[0_0_16px_hsl(var(--lime)/0.5)] transition-[width] duration-[1200ms] ease-out"
+          style={{ width: `${shown}%` }}
+        />
+      </div>
+    </div>
+  );
+}
+
 function BulletList({ items }: { items: string[] }) {
+
   return (
     <ul className="space-y-2">
       {items.map((i) => (
