@@ -11,12 +11,13 @@ import pillar1 from "@/assets/pillar-1.jpg";
 import pillar2 from "@/assets/pillar-2.jpg";
 import pillar3 from "@/assets/pillar-3.jpg";
 import pillar4 from "@/assets/pillar-4.jpg";
-import dishaAsset from "@/assets/disha.png.asset.json";
-import manyaAsset from "@/assets/manya.png.asset.json";
-import meghaShreeAsset from "@/assets/megha-shree.png.asset.json";
-import priyankaAsset from "@/assets/priyanka.png.asset.json";
-import sharanyaImg from "@/assets/sharanya-fixed.png";
-import suprabhaImg from "@/assets/suprabha-fixed.png";
+import cardAnwitha from "@/assets/cards/anwitha.png.asset.json";
+import cardDisha from "@/assets/cards/disha.png.asset.json";
+import cardManya from "@/assets/cards/manya.png.asset.json";
+import cardMegha from "@/assets/cards/megha.png.asset.json";
+import cardPriyanka from "@/assets/cards/priyanka.png.asset.json";
+import cardSharanya from "@/assets/cards/sharanya.png.asset.json";
+import cardSuprabha from "@/assets/cards/suprabha.png.asset.json";
 import demodayImg from "@/assets/demoday.jpg";
 
 export const Route = createFileRoute("/")({
