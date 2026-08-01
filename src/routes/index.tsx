@@ -352,50 +352,8 @@ function Index() {
             {life.map((l) => {
               const card = (
                 <article className="hover-lift group h-full overflow-hidden rounded-3xl border border-border bg-surface hover:border-lime/50 cursor-pointer">
-                  <div className="relative aspect-[4/3] overflow-hidden bg-white flex items-center justify-center">
-                    {/* Large blue circle backdrop */}
-                    <div
-                      aria-hidden
-                      className="pointer-events-none absolute -right-[18%] -top-[22%] h-[150%] w-[110%] rounded-full"
-                      style={{ background: "radial-gradient(circle at 30% 40%, #2563eb 0%, #1d4ed8 55%, #1e40af 100%)" }}
-                    />
-                    {/* Faint dot-grid texture */}
-                    <div
-                      aria-hidden
-                      className="pointer-events-none absolute inset-0 opacity-30"
-                      style={{ backgroundImage: "radial-gradient(#94a3b8 1px, transparent 1px)", backgroundSize: "14px 14px" }}
-                    />
-                    {/* Vertical faded name on left */}
-                    <div
-                      aria-hidden
-                      className="pointer-events-none absolute left-1 top-0 h-full flex items-center select-none"
-                    >
-                      <span
-                        className="font-black uppercase tracking-tight leading-none whitespace-nowrap"
-                        style={{
-                          writingMode: "vertical-rl",
-                          transform: "rotate(180deg)",
-                          fontSize: "clamp(3rem, 9vw, 6rem)",
-                          color: "transparent",
-                          WebkitTextStroke: "1.5px rgba(148,163,184,0.55)",
-                        }}
-                      >
-                        {l.title}
-                      </span>
-                    </div>
-                    {/* Bottom faded echo text */}
-                    <div
-                      aria-hidden
-                      className="pointer-events-none absolute -bottom-4 left-0 right-0 text-center select-none"
-                    >
-                      <span
-                        className="font-black uppercase italic tracking-tight leading-none"
-                        style={{ fontSize: "clamp(2.5rem, 8vw, 5rem)", color: "rgba(37,99,235,0.35)" }}
-                      >
-                        {l.title}
-                      </span>
-                    </div>
-                    <img src={l.img} alt={l.title} loading="lazy" width={1024} height={768} className="relative z-10 h-full w-full object-contain drop-shadow-2xl transition-transform duration-700 group-hover:scale-105" />
+                  <div className="relative aspect-[5/4] overflow-hidden">
+                    <img src={l.img} alt={l.title} loading="lazy" width={1402} height={1122} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                   </div>
                   <div className="p-5 sm:p-6">
                     <div className="text-xs font-semibold uppercase tracking-widest text-lime">{l.tag}</div>
