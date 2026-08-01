@@ -579,7 +579,41 @@ function PortfolioPage() {
               <BulletList items={p.talents} />
             </Card>
           </div>
+
+          {p.skillLevels && p.skillLevels.length > 0 && (
+            <div className="mt-16 grid gap-10 lg:grid-cols-[1.1fr_1fr]">
+              <div className="reveal">
+                <span className="text-xs font-bold uppercase tracking-widest text-lime">Proficiency</span>
+                <h3 className="mt-2 text-2xl font-black md:text-3xl">Skills at a glance</h3>
+                <div className="mt-8 space-y-5">
+                  {p.skillLevels.map((s: { name: string; value: number }, i: number) => (
+                    <SkillMeter key={s.name} name={s.name} value={s.value} index={i} />
+                  ))}
+                </div>
+              </div>
+
+              {p.tools && p.tools.length > 0 && (
+                <div className="reveal reveal-delay-2">
+                  <span className="text-xs font-bold uppercase tracking-widest text-lime">Tools & Platforms</span>
+                  <h3 className="mt-2 text-2xl font-black md:text-3xl">Daily stack</h3>
+                  <div className="mt-8 flex flex-wrap gap-2.5">
+                    {p.tools.map((t: string, i: number) => (
+                      <span
+                        key={t}
+                        style={{ animationDelay: `${i * 50}ms` }}
+                        className="animate-fade-in group relative inline-flex items-center gap-2 rounded-xl border border-border/60 bg-background px-4 py-2.5 text-sm font-semibold transition-all hover:-translate-y-1 hover:border-lime/60 hover:bg-lime/5"
+                      >
+                        <span className="h-1.5 w-1.5 rounded-full bg-lime transition-transform group-hover:scale-150" />
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
         </div>
+
       </section>
 
       {/* EDUCATION ROADMAP */}
