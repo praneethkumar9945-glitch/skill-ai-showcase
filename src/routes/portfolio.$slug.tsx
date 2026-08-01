@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, Mail, Award, Sparkles, Target, Briefcase, GraduationCap, Star } from "lucide-react";
 import skillAiLogo from "@/assets/skill-ai-logo.png";
 
