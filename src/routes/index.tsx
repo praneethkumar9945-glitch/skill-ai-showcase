@@ -205,10 +205,10 @@ function Index() {
             </h1>
 
             <div className="mt-6 sm:mt-8 flex flex-wrap gap-x-5 gap-y-3 text-sm">
-              <Meta icon={<Calendar className="h-4 w-4 text-lime" />} label="12 Months" />
+              <Meta icon={<Calendar className="h-4 w-4 text-lime" />} label="online/offline" />
               <Meta icon={<Clock className="h-4 w-4 text-lime" />} label="Full-Time" />
-              <Meta icon={<MapPin className="h-4 w-4 text-lime" />} label="Bangalore" />
-              <Meta icon={<Award className="h-4 w-4 text-lime" />} label="150 seats" />
+              <Meta icon={<MapPin className="h-4 w-4 text-lime" />} label="Mangalore" />
+              <Meta icon={<Award className="h-4 w-4 text-lime" />} label="Limited seats" />
             </div>
 
             <div className="mt-5 flex flex-wrap gap-2">
@@ -298,10 +298,10 @@ function Index() {
           Multimedia, AI, <br /> Management, <span className="text-gradient-lime">UG/PG Program</span>
         </h2>
         <div className="reveal mt-7 flex flex-wrap gap-x-7 gap-y-3 text-sm">
-          <Meta icon={<Calendar className="h-4 w-4 text-lime" />} label="12 months" />
+          <Meta icon={<Calendar className="h-4 w-4 text-lime" />} label="online/offline" />
           <Meta icon={<Clock className="h-4 w-4 text-lime" />} label="Full-Time, Residential" />
           <Meta icon={<Calendar className="h-4 w-4 text-lime" />} label="Aug 2026" />
-          <Meta icon={<MapPin className="h-4 w-4 text-lime" />} label="Bangalore" />
+          <Meta icon={<MapPin className="h-4 w-4 text-lime" />} label="Mangalore" />
         </div>
 
         <div className="mt-12 grid gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
