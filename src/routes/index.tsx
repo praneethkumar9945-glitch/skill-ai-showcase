@@ -395,7 +395,7 @@ function Index() {
             <div className="mt-7 sm:mt-8 grid grid-cols-2 gap-4 sm:gap-5">
               <div className="hover-lift rounded-2xl border border-border bg-background p-4 sm:p-5 hover:border-lime/50">
                 <div className="text-2xl sm:text-3xl font-bold text-gradient-lime">100+</div>
-                <div className="text-xs sm:text-sm text-muted-foreground">VCs on Campus</div>
+                <div className="text-xs sm:text-sm text-muted-foreground">IEs on Campus</div>
               </div>
               <div className="hover-lift rounded-2xl border border-border bg-background p-4 sm:p-5 hover:border-lime/50">
                 <div className="text-2xl sm:text-3xl font-bold text-gradient-lime">20+</div>
