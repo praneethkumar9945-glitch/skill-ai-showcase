@@ -388,9 +388,9 @@ function Index() {
         <div className="mx-auto grid max-w-7xl gap-10 sm:gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:items-center">
           <div className="reveal">
             <div className="text-xs sm:text-sm font-medium uppercase tracking-widest text-mint">SKILL AI Demo Day</div>
-            <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight">VCs come to campus.<br />Students pitch real businesses.</h2>
+            <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight">Industrial Experts come to campus.<br />Students pitch real businesses.</h2>
             <p className="mt-4 text-sm sm:text-base text-muted-foreground">
-              Demo Days are hosted by the SKILL AI Startup Lab, where students pitch to VCs from across the country. Every founder walks away with direct 1:1 feedback; the strongest pitches open doors to follow-up meetings and real investment.
+              Demo Days are hosted by the SKILL AI Startup Lab, where students pitch to IEs from across the country. Every founder walks away with direct 1:1 feedback; the strongest pitches open doors to follow-up meetings and real investment.
             </p>
             <div className="mt-7 sm:mt-8 grid grid-cols-2 gap-4 sm:gap-5">
               <div className="hover-lift rounded-2xl border border-border bg-background p-4 sm:p-5 hover:border-lime/50">
