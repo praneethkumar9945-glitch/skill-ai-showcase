@@ -298,10 +298,10 @@ function Index() {
           Multimedia, AI, <br /> Management, <span className="text-gradient-lime">UG/PG Program</span>
         </h2>
         <div className="reveal mt-7 flex flex-wrap gap-x-7 gap-y-3 text-sm">
-          <Meta icon={<Calendar className="h-4 w-4 text-lime" />} label="12 months" />
+          <Meta icon={<Calendar className="h-4 w-4 text-lime" />} label="online/offline" />
           <Meta icon={<Clock className="h-4 w-4 text-lime" />} label="Full-Time, Residential" />
           <Meta icon={<Calendar className="h-4 w-4 text-lime" />} label="Aug 2026" />
-          <Meta icon={<MapPin className="h-4 w-4 text-lime" />} label="Bangalore" />
+          <Meta icon={<MapPin className="h-4 w-4 text-lime" />} label="Mangalore" />
         </div>
 
         <div className="mt-12 grid gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
