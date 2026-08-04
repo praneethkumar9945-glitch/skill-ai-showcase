@@ -110,11 +110,6 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      {/* Announcement bar */}
-      <div className="w-full bg-mint py-2.5 text-center text-xs sm:text-sm font-medium text-[oklch(0.14_0.01_40)] animate-shimmer">
-        Final Admissions Round Now Open
-      </div>
-
       {/* Nav */}
       <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur-md">
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 py-3 sm:py-4">
