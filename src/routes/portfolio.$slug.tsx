@@ -183,6 +183,19 @@ const portfolios: Record<string, Portfolio> = {
       "Software Engineering & QA",
       "Business Process Understanding",
     ],
+    skillLevels: [
+      { name: "Python", value: 92 },
+      { name: "React.js & Node.js", value: 90 },
+      { name: "MongoDB & MySQL", value: 88 },
+      { name: "Power BI & Tableau", value: 86 },
+      { name: "Exploratory Data Analysis", value: 85 },
+      { name: "HTML & CSS", value: 90 },
+      { name: "Teaching & Mentoring", value: 92 },
+    ],
+    tools: [
+      "Python", "React.js", "Node.js", "Express", "MongoDB", "MySQL",
+      "Power BI", "Tableau", "Excel", "Git & GitHub", "VS Code", "AWS",
+    ],
     talents: [
       "Clear communication & presentation",
       "Leadership & team collaboration",
@@ -233,6 +246,19 @@ const portfolios: Record<string, Portfolio> = {
       "Adobe Photoshop & Illustrator",
       "HR Reporting",
     ],
+    skillLevels: [
+      { name: "HR Management", value: 92 },
+      { name: "Recruitment & Hiring", value: 90 },
+      { name: "Payroll Processing", value: 88 },
+      { name: "Employee Documentation", value: 90 },
+      { name: "MS Excel & MS Word", value: 88 },
+      { name: "Power BI Reporting", value: 80 },
+      { name: "Photoshop & Illustrator", value: 78 },
+    ],
+    tools: [
+      "MS Excel", "MS Word", "Power BI", "Google Workspace", "HRMS Portals",
+      "Payroll Software", "Adobe Photoshop", "Adobe Illustrator", "Canva", "LinkedIn Recruiter",
+    ],
     talents: [
       "Strong communication",
       "Team leadership",
@@ -282,6 +308,19 @@ const portfolios: Record<string, Portfolio> = {
       "Negotiation",
       "Record Keeping",
     ],
+    skillLevels: [
+      { name: "Communication", value: 94 },
+      { name: "CRM Management", value: 90 },
+      { name: "Student Counseling", value: 92 },
+      { name: "Customer Handling", value: 90 },
+      { name: "Negotiation", value: 85 },
+      { name: "Record Keeping", value: 88 },
+      { name: "Teamwork", value: 90 },
+    ],
+    tools: [
+      "CRM Software", "MS Excel", "Google Sheets", "WhatsApp Business",
+      "Email Campaigns", "Calling Systems", "Google Forms", "Canva",
+    ],
     talents: [
       "Empathy & active listening",
       "Time management",
@@ -329,6 +368,19 @@ const portfolios: Record<string, Portfolio> = {
       "Content Creation",
       "Presentation & Communication",
     ],
+    skillLevels: [
+      { name: "Graphic Design", value: 92 },
+      { name: "Video Editing", value: 90 },
+      { name: "Motion Graphics", value: 86 },
+      { name: "Digital Marketing", value: 85 },
+      { name: "Social Media Management", value: 88 },
+      { name: "Content Creation", value: 90 },
+      { name: "Presentation & Communication", value: 92 },
+    ],
+    tools: [
+      "Adobe Photoshop", "Adobe Illustrator", "Adobe Premiere Pro", "After Effects",
+      "Canva", "CapCut", "Figma", "Meta Business Suite", "ChatGPT",
+    ],
     talents: [
       "Creative thinker",
       "Passionate trainer",
@@ -375,6 +427,18 @@ const portfolios: Record<string, Portfolio> = {
       "Creative Direction",
       "Classroom Training & Mentoring",
       "Presentation & Communication",
+    ],
+    skillLevels: [
+      { name: "Adobe Photoshop & Illustrator", value: 92 },
+      { name: "Premiere Pro & After Effects", value: 88 },
+      { name: "Branding & Layout Design", value: 90 },
+      { name: "Short-form Video Production", value: 88 },
+      { name: "Creative Direction", value: 85 },
+      { name: "Classroom Training & Mentoring", value: 90 },
+    ],
+    tools: [
+      "Adobe Photoshop", "Adobe Illustrator", "Adobe Premiere Pro", "After Effects",
+      "Figma", "Canva", "CapCut", "Blender", "ChatGPT",
     ],
     talents: [
       "Strong visual sense",
