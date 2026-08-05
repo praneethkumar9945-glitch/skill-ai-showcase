@@ -56,6 +56,19 @@ const portfolios: Record<string, Portfolio> = {
       "Python, Java, C",
       "HTML, CSS, SQL",
     ],
+    skillLevels: [
+      { name: "Market & Competitor Research", value: 92 },
+      { name: "Requirement Gathering", value: 90 },
+      { name: "Project Documentation", value: 90 },
+      { name: "Leadership & Team Coordination", value: 88 },
+      { name: "Data Analysis & Reporting", value: 86 },
+      { name: "Communication & Public Speaking", value: 85 },
+      { name: "Python / Java / C", value: 80 },
+    ],
+    tools: [
+      "Python", "Java", "C", "SQL", "HTML", "CSS",
+      "MS Excel", "Power BI", "Google Workspace", "Notion", "Jira", "ChatGPT",
+    ],
     talents: [
       "Leadership & organization",
       "Analytical problem-solving",
