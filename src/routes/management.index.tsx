@@ -10,7 +10,7 @@ import imgFin from "@/assets/mg-fin.jpg";
 import imgPpl from "@/assets/mg-ppl.jpg";
 import imgPm from "@/assets/mg-pm.jpg";
 
-export const Route = createFileRoute("/management")({
+export const Route = createFileRoute("/management/")({
   head: () => ({
     meta: [
       { title: "Management Programs — SSCC" },

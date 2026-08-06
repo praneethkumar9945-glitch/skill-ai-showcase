@@ -13,11 +13,11 @@ import { Route as UgProgramsRouteImport } from './routes/ug-programs'
 import { Route as OutcomesRouteImport } from './routes/outcomes'
 import { Route as OnlineProgramsRouteImport } from './routes/online-programs'
 import { Route as MultimediaRouteImport } from './routes/multimedia'
-import { Route as ManagementRouteImport } from './routes/management'
 import { Route as IncubationRouteImport } from './routes/incubation'
 import { Route as AiRouteImport } from './routes/ai'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as MultimediaIndexRouteImport } from './routes/multimedia.index'
+import { Route as ManagementIndexRouteImport } from './routes/management.index'
 import { Route as AiIndexRouteImport } from './routes/ai.index'
 import { Route as PortfolioSlugRouteImport } from './routes/portfolio.$slug'
 import { Route as MultimediaPmSmmRouteImport } from './routes/multimedia.pm-smm'
@@ -53,11 +53,6 @@ const MultimediaRoute = MultimediaRouteImport.update({
   path: '/multimedia',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ManagementRoute = ManagementRouteImport.update({
-  id: '/management',
-  path: '/management',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IncubationRoute = IncubationRouteImport.update({
   id: '/incubation',
   path: '/incubation',
@@ -77,6 +72,11 @@ const MultimediaIndexRoute = MultimediaIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => MultimediaRoute,
+} as any)
+const ManagementIndexRoute = ManagementIndexRouteImport.update({
+  id: '/management/',
+  path: '/management/',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const AiIndexRoute = AiIndexRouteImport.update({
   id: '/',
@@ -156,7 +156,6 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/ai': typeof AiRouteWithChildren
   '/incubation': typeof IncubationRoute
-  '/management': typeof ManagementRoute
   '/multimedia': typeof MultimediaRouteWithChildren
   '/online-programs': typeof OnlineProgramsRoute
   '/outcomes': typeof OutcomesRoute
@@ -175,12 +174,12 @@ export interface FileRoutesByFullPath {
   '/multimedia/pm-smm': typeof MultimediaPmSmmRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/ai/': typeof AiIndexRoute
+  '/management/': typeof ManagementIndexRoute
   '/multimedia/': typeof MultimediaIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/incubation': typeof IncubationRoute
-  '/management': typeof ManagementRoute
   '/online-programs': typeof OnlineProgramsRoute
   '/outcomes': typeof OutcomesRoute
   '/ug-programs': typeof UgProgramsRoute
@@ -198,6 +197,7 @@ export interface FileRoutesByTo {
   '/multimedia/pm-smm': typeof MultimediaPmSmmRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/ai': typeof AiIndexRoute
+  '/management': typeof ManagementIndexRoute
   '/multimedia': typeof MultimediaIndexRoute
 }
 export interface FileRoutesById {
@@ -205,7 +205,6 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/ai': typeof AiRouteWithChildren
   '/incubation': typeof IncubationRoute
-  '/management': typeof ManagementRoute
   '/multimedia': typeof MultimediaRouteWithChildren
   '/online-programs': typeof OnlineProgramsRoute
   '/outcomes': typeof OutcomesRoute
@@ -224,6 +223,7 @@ export interface FileRoutesById {
   '/multimedia/pm-smm': typeof MultimediaPmSmmRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/ai/': typeof AiIndexRoute
+  '/management/': typeof ManagementIndexRoute
   '/multimedia/': typeof MultimediaIndexRoute
 }
 export interface FileRouteTypes {
@@ -232,7 +232,6 @@ export interface FileRouteTypes {
     | '/'
     | '/ai'
     | '/incubation'
-    | '/management'
     | '/multimedia'
     | '/online-programs'
     | '/outcomes'
@@ -251,12 +250,12 @@ export interface FileRouteTypes {
     | '/multimedia/pm-smm'
     | '/portfolio/$slug'
     | '/ai/'
+    | '/management/'
     | '/multimedia/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/incubation'
-    | '/management'
     | '/online-programs'
     | '/outcomes'
     | '/ug-programs'
@@ -274,13 +273,13 @@ export interface FileRouteTypes {
     | '/multimedia/pm-smm'
     | '/portfolio/$slug'
     | '/ai'
+    | '/management'
     | '/multimedia'
   id:
     | '__root__'
     | '/'
     | '/ai'
     | '/incubation'
-    | '/management'
     | '/multimedia'
     | '/online-programs'
     | '/outcomes'
@@ -299,6 +298,7 @@ export interface FileRouteTypes {
     | '/multimedia/pm-smm'
     | '/portfolio/$slug'
     | '/ai/'
+    | '/management/'
     | '/multimedia/'
   fileRoutesById: FileRoutesById
 }
@@ -306,12 +306,12 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AiRoute: typeof AiRouteWithChildren
   IncubationRoute: typeof IncubationRoute
-  ManagementRoute: typeof ManagementRoute
   MultimediaRoute: typeof MultimediaRouteWithChildren
   OnlineProgramsRoute: typeof OnlineProgramsRoute
   OutcomesRoute: typeof OutcomesRoute
   UgProgramsRoute: typeof UgProgramsRoute
   PortfolioSlugRoute: typeof PortfolioSlugRoute
+  ManagementIndexRoute: typeof ManagementIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -344,13 +344,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MultimediaRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/management': {
-      id: '/management'
-      path: '/management'
-      fullPath: '/management'
-      preLoaderRoute: typeof ManagementRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/incubation': {
       id: '/incubation'
       path: '/incubation'
@@ -378,6 +371,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/multimedia/'
       preLoaderRoute: typeof MultimediaIndexRouteImport
       parentRoute: typeof MultimediaRoute
+    }
+    '/management/': {
+      id: '/management/'
+      path: '/management'
+      fullPath: '/management/'
+      preLoaderRoute: typeof ManagementIndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/ai/': {
       id: '/ai/'
@@ -530,12 +530,12 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AiRoute: AiRouteWithChildren,
   IncubationRoute: IncubationRoute,
-  ManagementRoute: ManagementRoute,
   MultimediaRoute: MultimediaRouteWithChildren,
   OnlineProgramsRoute: OnlineProgramsRoute,
   OutcomesRoute: OutcomesRoute,
   UgProgramsRoute: UgProgramsRoute,
   PortfolioSlugRoute: PortfolioSlugRoute,
+  ManagementIndexRoute: ManagementIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
