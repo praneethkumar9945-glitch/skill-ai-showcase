@@ -18,6 +18,7 @@ import { Route as IncubationRouteImport } from './routes/incubation'
 import { Route as AiRouteImport } from './routes/ai'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as MultimediaIndexRouteImport } from './routes/multimedia.index'
+import { Route as ManagementIndexRouteImport } from './routes/management.index'
 import { Route as AiIndexRouteImport } from './routes/ai.index'
 import { Route as PortfolioSlugRouteImport } from './routes/portfolio.$slug'
 import { Route as MultimediaPmSmmRouteImport } from './routes/multimedia.pm-smm'
@@ -25,6 +26,12 @@ import { Route as MultimediaFilmProductionRouteImport } from './routes/multimedi
 import { Route as MultimediaAnimationVfxRouteImport } from './routes/multimedia.animation-vfx'
 import { Route as MultimediaAiVideoEditingVfxRouteImport } from './routes/multimedia.ai-video-editing-vfx'
 import { Route as MultimediaAiGraphicDesignRouteImport } from './routes/multimedia.ai-graphic-design'
+import { Route as ManagementSalesBusinessDevelopmentRouteImport } from './routes/management.sales-business-development'
+import { Route as ManagementProductManagementRouteImport } from './routes/management.product-management'
+import { Route as ManagementPeopleOperationsRouteImport } from './routes/management.people-operations'
+import { Route as ManagementMarketingGrowthRouteImport } from './routes/management.marketing-growth'
+import { Route as ManagementFinanceAccountingRouteImport } from './routes/management.finance-accounting'
+import { Route as ManagementBusinessEntrepreneurshipRouteImport } from './routes/management.business-entrepreneurship'
 import { Route as AiProductManagementRouteImport } from './routes/ai.product-management'
 import { Route as AiGenAiRouteImport } from './routes/ai.gen-ai'
 import { Route as AiDataSecurityRouteImport } from './routes/ai.data-security'
@@ -78,6 +85,11 @@ const MultimediaIndexRoute = MultimediaIndexRouteImport.update({
   path: '/',
   getParentRoute: () => MultimediaRoute,
 } as any)
+const ManagementIndexRoute = ManagementIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ManagementRoute,
+} as any)
 const AiIndexRoute = AiIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -115,6 +127,42 @@ const MultimediaAiGraphicDesignRoute =
     id: '/ai-graphic-design',
     path: '/ai-graphic-design',
     getParentRoute: () => MultimediaRoute,
+  } as any)
+const ManagementSalesBusinessDevelopmentRoute =
+  ManagementSalesBusinessDevelopmentRouteImport.update({
+    id: '/sales-business-development',
+    path: '/sales-business-development',
+    getParentRoute: () => ManagementRoute,
+  } as any)
+const ManagementProductManagementRoute =
+  ManagementProductManagementRouteImport.update({
+    id: '/product-management',
+    path: '/product-management',
+    getParentRoute: () => ManagementRoute,
+  } as any)
+const ManagementPeopleOperationsRoute =
+  ManagementPeopleOperationsRouteImport.update({
+    id: '/people-operations',
+    path: '/people-operations',
+    getParentRoute: () => ManagementRoute,
+  } as any)
+const ManagementMarketingGrowthRoute =
+  ManagementMarketingGrowthRouteImport.update({
+    id: '/marketing-growth',
+    path: '/marketing-growth',
+    getParentRoute: () => ManagementRoute,
+  } as any)
+const ManagementFinanceAccountingRoute =
+  ManagementFinanceAccountingRouteImport.update({
+    id: '/finance-accounting',
+    path: '/finance-accounting',
+    getParentRoute: () => ManagementRoute,
+  } as any)
+const ManagementBusinessEntrepreneurshipRoute =
+  ManagementBusinessEntrepreneurshipRouteImport.update({
+    id: '/business-entrepreneurship',
+    path: '/business-entrepreneurship',
+    getParentRoute: () => ManagementRoute,
   } as any)
 const AiProductManagementRoute = AiProductManagementRouteImport.update({
   id: '/product-management',
@@ -156,7 +204,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/ai': typeof AiRouteWithChildren
   '/incubation': typeof IncubationRoute
-  '/management': typeof ManagementRoute
+  '/management': typeof ManagementRouteWithChildren
   '/multimedia': typeof MultimediaRouteWithChildren
   '/online-programs': typeof OnlineProgramsRoute
   '/outcomes': typeof OutcomesRoute
@@ -168,6 +216,12 @@ export interface FileRoutesByFullPath {
   '/ai/data-security': typeof AiDataSecurityRoute
   '/ai/gen-ai': typeof AiGenAiRoute
   '/ai/product-management': typeof AiProductManagementRoute
+  '/management/business-entrepreneurship': typeof ManagementBusinessEntrepreneurshipRoute
+  '/management/finance-accounting': typeof ManagementFinanceAccountingRoute
+  '/management/marketing-growth': typeof ManagementMarketingGrowthRoute
+  '/management/people-operations': typeof ManagementPeopleOperationsRoute
+  '/management/product-management': typeof ManagementProductManagementRoute
+  '/management/sales-business-development': typeof ManagementSalesBusinessDevelopmentRoute
   '/multimedia/ai-graphic-design': typeof MultimediaAiGraphicDesignRoute
   '/multimedia/ai-video-editing-vfx': typeof MultimediaAiVideoEditingVfxRoute
   '/multimedia/animation-vfx': typeof MultimediaAnimationVfxRoute
@@ -175,12 +229,12 @@ export interface FileRoutesByFullPath {
   '/multimedia/pm-smm': typeof MultimediaPmSmmRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/ai/': typeof AiIndexRoute
+  '/management/': typeof ManagementIndexRoute
   '/multimedia/': typeof MultimediaIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/incubation': typeof IncubationRoute
-  '/management': typeof ManagementRoute
   '/online-programs': typeof OnlineProgramsRoute
   '/outcomes': typeof OutcomesRoute
   '/ug-programs': typeof UgProgramsRoute
@@ -191,6 +245,12 @@ export interface FileRoutesByTo {
   '/ai/data-security': typeof AiDataSecurityRoute
   '/ai/gen-ai': typeof AiGenAiRoute
   '/ai/product-management': typeof AiProductManagementRoute
+  '/management/business-entrepreneurship': typeof ManagementBusinessEntrepreneurshipRoute
+  '/management/finance-accounting': typeof ManagementFinanceAccountingRoute
+  '/management/marketing-growth': typeof ManagementMarketingGrowthRoute
+  '/management/people-operations': typeof ManagementPeopleOperationsRoute
+  '/management/product-management': typeof ManagementProductManagementRoute
+  '/management/sales-business-development': typeof ManagementSalesBusinessDevelopmentRoute
   '/multimedia/ai-graphic-design': typeof MultimediaAiGraphicDesignRoute
   '/multimedia/ai-video-editing-vfx': typeof MultimediaAiVideoEditingVfxRoute
   '/multimedia/animation-vfx': typeof MultimediaAnimationVfxRoute
@@ -198,6 +258,7 @@ export interface FileRoutesByTo {
   '/multimedia/pm-smm': typeof MultimediaPmSmmRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/ai': typeof AiIndexRoute
+  '/management': typeof ManagementIndexRoute
   '/multimedia': typeof MultimediaIndexRoute
 }
 export interface FileRoutesById {
@@ -205,7 +266,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/ai': typeof AiRouteWithChildren
   '/incubation': typeof IncubationRoute
-  '/management': typeof ManagementRoute
+  '/management': typeof ManagementRouteWithChildren
   '/multimedia': typeof MultimediaRouteWithChildren
   '/online-programs': typeof OnlineProgramsRoute
   '/outcomes': typeof OutcomesRoute
@@ -217,6 +278,12 @@ export interface FileRoutesById {
   '/ai/data-security': typeof AiDataSecurityRoute
   '/ai/gen-ai': typeof AiGenAiRoute
   '/ai/product-management': typeof AiProductManagementRoute
+  '/management/business-entrepreneurship': typeof ManagementBusinessEntrepreneurshipRoute
+  '/management/finance-accounting': typeof ManagementFinanceAccountingRoute
+  '/management/marketing-growth': typeof ManagementMarketingGrowthRoute
+  '/management/people-operations': typeof ManagementPeopleOperationsRoute
+  '/management/product-management': typeof ManagementProductManagementRoute
+  '/management/sales-business-development': typeof ManagementSalesBusinessDevelopmentRoute
   '/multimedia/ai-graphic-design': typeof MultimediaAiGraphicDesignRoute
   '/multimedia/ai-video-editing-vfx': typeof MultimediaAiVideoEditingVfxRoute
   '/multimedia/animation-vfx': typeof MultimediaAnimationVfxRoute
@@ -224,6 +291,7 @@ export interface FileRoutesById {
   '/multimedia/pm-smm': typeof MultimediaPmSmmRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/ai/': typeof AiIndexRoute
+  '/management/': typeof ManagementIndexRoute
   '/multimedia/': typeof MultimediaIndexRoute
 }
 export interface FileRouteTypes {
@@ -244,6 +312,12 @@ export interface FileRouteTypes {
     | '/ai/data-security'
     | '/ai/gen-ai'
     | '/ai/product-management'
+    | '/management/business-entrepreneurship'
+    | '/management/finance-accounting'
+    | '/management/marketing-growth'
+    | '/management/people-operations'
+    | '/management/product-management'
+    | '/management/sales-business-development'
     | '/multimedia/ai-graphic-design'
     | '/multimedia/ai-video-editing-vfx'
     | '/multimedia/animation-vfx'
@@ -251,12 +325,12 @@ export interface FileRouteTypes {
     | '/multimedia/pm-smm'
     | '/portfolio/$slug'
     | '/ai/'
+    | '/management/'
     | '/multimedia/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/incubation'
-    | '/management'
     | '/online-programs'
     | '/outcomes'
     | '/ug-programs'
@@ -267,6 +341,12 @@ export interface FileRouteTypes {
     | '/ai/data-security'
     | '/ai/gen-ai'
     | '/ai/product-management'
+    | '/management/business-entrepreneurship'
+    | '/management/finance-accounting'
+    | '/management/marketing-growth'
+    | '/management/people-operations'
+    | '/management/product-management'
+    | '/management/sales-business-development'
     | '/multimedia/ai-graphic-design'
     | '/multimedia/ai-video-editing-vfx'
     | '/multimedia/animation-vfx'
@@ -274,6 +354,7 @@ export interface FileRouteTypes {
     | '/multimedia/pm-smm'
     | '/portfolio/$slug'
     | '/ai'
+    | '/management'
     | '/multimedia'
   id:
     | '__root__'
@@ -292,6 +373,12 @@ export interface FileRouteTypes {
     | '/ai/data-security'
     | '/ai/gen-ai'
     | '/ai/product-management'
+    | '/management/business-entrepreneurship'
+    | '/management/finance-accounting'
+    | '/management/marketing-growth'
+    | '/management/people-operations'
+    | '/management/product-management'
+    | '/management/sales-business-development'
     | '/multimedia/ai-graphic-design'
     | '/multimedia/ai-video-editing-vfx'
     | '/multimedia/animation-vfx'
@@ -299,6 +386,7 @@ export interface FileRouteTypes {
     | '/multimedia/pm-smm'
     | '/portfolio/$slug'
     | '/ai/'
+    | '/management/'
     | '/multimedia/'
   fileRoutesById: FileRoutesById
 }
@@ -306,7 +394,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AiRoute: typeof AiRouteWithChildren
   IncubationRoute: typeof IncubationRoute
-  ManagementRoute: typeof ManagementRoute
+  ManagementRoute: typeof ManagementRouteWithChildren
   MultimediaRoute: typeof MultimediaRouteWithChildren
   OnlineProgramsRoute: typeof OnlineProgramsRoute
   OutcomesRoute: typeof OutcomesRoute
@@ -379,6 +467,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MultimediaIndexRouteImport
       parentRoute: typeof MultimediaRoute
     }
+    '/management/': {
+      id: '/management/'
+      path: '/'
+      fullPath: '/management/'
+      preLoaderRoute: typeof ManagementIndexRouteImport
+      parentRoute: typeof ManagementRoute
+    }
     '/ai/': {
       id: '/ai/'
       path: '/'
@@ -427,6 +522,48 @@ declare module '@tanstack/react-router' {
       fullPath: '/multimedia/ai-graphic-design'
       preLoaderRoute: typeof MultimediaAiGraphicDesignRouteImport
       parentRoute: typeof MultimediaRoute
+    }
+    '/management/sales-business-development': {
+      id: '/management/sales-business-development'
+      path: '/sales-business-development'
+      fullPath: '/management/sales-business-development'
+      preLoaderRoute: typeof ManagementSalesBusinessDevelopmentRouteImport
+      parentRoute: typeof ManagementRoute
+    }
+    '/management/product-management': {
+      id: '/management/product-management'
+      path: '/product-management'
+      fullPath: '/management/product-management'
+      preLoaderRoute: typeof ManagementProductManagementRouteImport
+      parentRoute: typeof ManagementRoute
+    }
+    '/management/people-operations': {
+      id: '/management/people-operations'
+      path: '/people-operations'
+      fullPath: '/management/people-operations'
+      preLoaderRoute: typeof ManagementPeopleOperationsRouteImport
+      parentRoute: typeof ManagementRoute
+    }
+    '/management/marketing-growth': {
+      id: '/management/marketing-growth'
+      path: '/marketing-growth'
+      fullPath: '/management/marketing-growth'
+      preLoaderRoute: typeof ManagementMarketingGrowthRouteImport
+      parentRoute: typeof ManagementRoute
+    }
+    '/management/finance-accounting': {
+      id: '/management/finance-accounting'
+      path: '/finance-accounting'
+      fullPath: '/management/finance-accounting'
+      preLoaderRoute: typeof ManagementFinanceAccountingRouteImport
+      parentRoute: typeof ManagementRoute
+    }
+    '/management/business-entrepreneurship': {
+      id: '/management/business-entrepreneurship'
+      path: '/business-entrepreneurship'
+      fullPath: '/management/business-entrepreneurship'
+      preLoaderRoute: typeof ManagementBusinessEntrepreneurshipRouteImport
+      parentRoute: typeof ManagementRoute
     }
     '/ai/product-management': {
       id: '/ai/product-management'
@@ -504,6 +641,32 @@ const AiRouteChildren: AiRouteChildren = {
 
 const AiRouteWithChildren = AiRoute._addFileChildren(AiRouteChildren)
 
+interface ManagementRouteChildren {
+  ManagementBusinessEntrepreneurshipRoute: typeof ManagementBusinessEntrepreneurshipRoute
+  ManagementFinanceAccountingRoute: typeof ManagementFinanceAccountingRoute
+  ManagementMarketingGrowthRoute: typeof ManagementMarketingGrowthRoute
+  ManagementPeopleOperationsRoute: typeof ManagementPeopleOperationsRoute
+  ManagementProductManagementRoute: typeof ManagementProductManagementRoute
+  ManagementSalesBusinessDevelopmentRoute: typeof ManagementSalesBusinessDevelopmentRoute
+  ManagementIndexRoute: typeof ManagementIndexRoute
+}
+
+const ManagementRouteChildren: ManagementRouteChildren = {
+  ManagementBusinessEntrepreneurshipRoute:
+    ManagementBusinessEntrepreneurshipRoute,
+  ManagementFinanceAccountingRoute: ManagementFinanceAccountingRoute,
+  ManagementMarketingGrowthRoute: ManagementMarketingGrowthRoute,
+  ManagementPeopleOperationsRoute: ManagementPeopleOperationsRoute,
+  ManagementProductManagementRoute: ManagementProductManagementRoute,
+  ManagementSalesBusinessDevelopmentRoute:
+    ManagementSalesBusinessDevelopmentRoute,
+  ManagementIndexRoute: ManagementIndexRoute,
+}
+
+const ManagementRouteWithChildren = ManagementRoute._addFileChildren(
+  ManagementRouteChildren,
+)
+
 interface MultimediaRouteChildren {
   MultimediaAiGraphicDesignRoute: typeof MultimediaAiGraphicDesignRoute
   MultimediaAiVideoEditingVfxRoute: typeof MultimediaAiVideoEditingVfxRoute
@@ -530,7 +693,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AiRoute: AiRouteWithChildren,
   IncubationRoute: IncubationRoute,
-  ManagementRoute: ManagementRoute,
+  ManagementRoute: ManagementRouteWithChildren,
   MultimediaRoute: MultimediaRouteWithChildren,
   OnlineProgramsRoute: OnlineProgramsRoute,
   OutcomesRoute: OutcomesRoute,
@@ -540,13 +703,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
