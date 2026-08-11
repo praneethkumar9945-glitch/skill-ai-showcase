@@ -215,7 +215,7 @@ const portfolios: Record<string, Portfolio> = {
     vision:
       "To empower individuals with industry-relevant skills and help them achieve their career goals, while continuously growing as a developer, analyst, and mentor.",
     currentRole:
-      "Full-Stack Developer & Data Analyst — building MERN applications, analyzing data with Python/SQL/Power BI, and mentoring students on real-world projects.",
+      "AI EXPERT & TRAINER — building MERN applications, analyzing data with Python/SQL/Power BI, and mentoring students on real-world projects.",
     standOut: [
       "20+ projects guided & delivered end-to-end",
       "100+ students trained and empowered in modern tech",
