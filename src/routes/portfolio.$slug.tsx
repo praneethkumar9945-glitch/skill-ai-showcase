@@ -162,7 +162,7 @@ const portfolios: Record<string, Portfolio> = {
   },
   priyanka: {
     name: "Priyanka K Poojary",
-    role: "Full-Stack Developer & Data Analyst",
+    role: "AI EXPERT & TRAINER",
     photo: priyankaPhoto,
     tagline: "Empowering minds. Building skills. Driving futures.",
     expertise: [
